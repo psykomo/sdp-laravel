@@ -15,7 +15,7 @@ class EloquentInmateRepository implements InmateRepository
     public function paginate(int $perPage = 15): LengthAwarePaginator
     {
         return Inmate::query()
-            ->latest('id')
+            ->orderByDesc('created_at')
             ->paginate($perPage);
     }
 
@@ -29,5 +29,25 @@ class EloquentInmateRepository implements InmateRepository
             'birth_date' => $data->birthDate,
             'nationality' => $data->nationality,
         ]);
+    }
+
+    public function update(Inmate $inmate, CreateInmateData $data): Inmate
+    {
+        $inmate->fill([
+            'full_name' => $data->fullName,
+            'inmate_number' => $data->inmateNumber,
+            'gender' => $data->gender,
+            'birth_date' => $data->birthDate,
+            'nationality' => $data->nationality,
+        ]);
+
+        $inmate->save();
+
+        return $inmate->refresh();
+    }
+
+    public function delete(Inmate $inmate): void
+    {
+        $inmate->delete();
     }
 }

@@ -13,4 +13,8 @@ interface InmateRepository
     public function paginate(int $perPage = 15): LengthAwarePaginator;
 
     public function create(CreateInmateData $data): Inmate;
+
+    public function update(Inmate $inmate, CreateInmateData $data): Inmate;
+
+    public function delete(Inmate $inmate): void;
 }
