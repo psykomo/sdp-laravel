@@ -13,10 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'System Administrator',
-            'email' => 'admin@sdp.local',
-            'password' => 'password',
-        ]);
+        if (! User::where('email', 'admin@sdp.local')->exists()) {
+            User::factory()->create([
+                'name' => 'System Administrator',
+                'email' => 'admin@sdp.local',
+                'password' => 'password',
+            ]);
+        }
     }
 }
