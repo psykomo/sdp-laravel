@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ module }};
+
+use App\Modules\{{ module }}\Application\Contracts\{{ module }}Repository;
+use App\Modules\{{ module }}\Infrastructure\Eloquent\Eloquent{{ module }}Repository;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+
+class {{ module }}ServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->bind({{ module }}Repository::class, Eloquent{{ module }}Repository::class);
+    }
+
+    public function boot(): void
+    {
+        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+
+        Route::middleware('web')
+            ->group(__DIR__.'/Interfaces/Routes/web.php');
+    }
+}

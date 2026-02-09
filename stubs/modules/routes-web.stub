@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+use Illuminate\Support\Facades\Route;
+
+Route::prefix('{{ kebab_module }}')
+    ->name('{{ dotted_module }}.')
+    ->middleware(['auth', 'verified'])
+    ->group(function (): void {
+        // Route::get('/', ...)->name('index');
+    });

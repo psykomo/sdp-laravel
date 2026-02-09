@@ -1,0 +1,11 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ module }}\Infrastructure\Eloquent;
+
+use App\Modules\{{ module }}\Application\Contracts\{{ module }}Repository;
+
+class Eloquent{{ module }}Repository implements {{ module }}Repository
+{
+}
