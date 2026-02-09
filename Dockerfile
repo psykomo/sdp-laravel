@@ -50,7 +50,6 @@ COPY --chown=laravel:laravel . .
 RUN composer install --optimize-autoloader --no-interaction \
     && npm ci \
     && npm run build \
-    && rm -rf node_modules \
     && chown -R laravel:laravel /var/www/html
 
 USER laravel
