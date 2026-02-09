@@ -93,3 +93,8 @@ composer dump-autoload
 If you get a duplicate entry error (e.g., for `admin@sdp.local`), it means the data already exists.
 - The `DatabaseSeeder` has been updated to check for existing users before creating them.
 - If issues persist with other data, consider running `migrate:fresh --seed` to start clean.
+
+### Issue Vite Build
+```bash
+docker compose exec app npm run build
+```
