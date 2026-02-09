@@ -137,6 +137,18 @@ To keep extraction cost low:
 - Prefer stable public IDs (`UUID v7`) over exposing integer IDs.
 - Keep side effects explicit and queue-friendly.
 
+## UUID Strategy
+
+- Application entities use `UUID v7` for identifiers.
+- Keep in mind Laravel framework internal tables may have engine/driver assumptions.
+- In particular, queue internals (`database` queue driver) still rely on their default ID behavior unless custom queue driver overrides are implemented.
+
+## Replication Version Column
+
+- A dedicated `version` column is required in replicated tables for SymmetricDS-based hub-and-spoke replication.
+- Current baseline migration adds `version` as `unsignedBigInteger` with default `1`.
+- Future tables should include `version` from the start to keep replication behavior consistent.
+
 ## Test Coverage Added
 
 - `tests/Feature/InmateRegistry/InmateManagementTest.php`

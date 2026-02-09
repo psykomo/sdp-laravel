@@ -52,7 +52,7 @@ Modules expose behavior through typed contracts and route/controllers in their o
 - Use enums/value objects for constrained domains.
 - Use Form Requests for validation.
 - Keep repository interfaces in `Application/Contracts`; implementation in `Infrastructure`.
-- Prefer stable public IDs (`ULID/UUID`) for externally referenced aggregates.
+- Prefer stable public IDs (`UUID v7`) for externally referenced aggregates.
 - Write Pest tests per module.
 
 ## Implementation Notes

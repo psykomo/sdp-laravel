@@ -35,6 +35,12 @@ Values:
 - `DB_USERNAME=laravel`
 - `DB_PASSWORD=laravel`
 
+## SymmetricDS replication note
+
+- Replicated tables include a dedicated `version` column used by our replication flow.
+- Baseline column type is `unsignedBigInteger` with default `1`.
+- Ensure new tables also include `version` for consistency across hub-and-spoke nodes.
+
 ## Run locally
 
 1. `docker compose up -d`

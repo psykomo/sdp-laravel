@@ -61,3 +61,9 @@ This document describes how to start the application in local development.
     - `DB_PASSWORD=laravel`
 - If frontend changes are not reflected:
   - Ensure `composer run dev` (or `npm run dev`) is running.
+- If schema changes include primary key type changes (for example `bigint` to `uuid`):
+  - Use `php artisan migrate:fresh` in local development.
+  - If using Dockerized MariaDB, an alternative clean reset is:
+    - `docker compose down -v`
+    - `docker compose up -d`
+    - `php artisan migrate`
