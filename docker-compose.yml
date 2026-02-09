@@ -6,7 +6,7 @@ services:
       args:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
-    container_name: psykomo_sdp_app
+    container_name: sdp_app
     restart: unless-stopped
     working_dir: /var/www/html
     environment:
@@ -31,7 +31,7 @@ services:
 
   web:
     image: nginx:1.27-alpine
-    container_name: psykomo_sdp_web
+    container_name: sdp_web
     restart: unless-stopped
     depends_on:
       - app
@@ -45,7 +45,7 @@ services:
 
   mariadb:
     image: mariadb:11.8
-    container_name: psykomo_sdp_mariadb
+    container_name: sdp_mariadb
     restart: unless-stopped
     environment:
       MARIADB_DATABASE: ${DB_DATABASE:-sdp}
@@ -66,7 +66,7 @@ services:
 
   adminer:
     image: adminer:5.3.0
-    container_name: psykomo_sdp_adminer
+    container_name: sdp_adminer
     restart: unless-stopped
     depends_on:
       mariadb:
