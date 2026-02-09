@@ -13,7 +13,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import inmatesRoutes from '@/routes/inmate-registry/inmates';
+import wbpRoutes from '@/routes/wbp-registry/wbp';
 import type { NavItem } from '@/types';
 import AppLogo from './app-logo';
 
@@ -24,8 +24,8 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Inmate Management',
-        href: inmatesRoutes.index(),
+        title: 'WBP Management',
+        href: wbpRoutes.index(),
         icon: Users,
     },
 ];

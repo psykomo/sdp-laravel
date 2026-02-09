@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class MakeModuleCommand extends Command
 {
     protected $signature = 'make:module
-        {name : Module name, e.g. InmateRegistry}
+        {name : Module name, e.g. WbpRegistry}
         {--force : Overwrite generated files if they already exist}
         {--without-registration : Skip provider registration in config/modules.php}';
 

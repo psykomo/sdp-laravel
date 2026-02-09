@@ -14,7 +14,7 @@ it('ensures all replicated tables have a version column', function (): void {
         'jobs',
         'job_batches',
         'failed_jobs',
-        'inmates',
+        'wbp',
     ];
 
     foreach ($tables as $tableName) {

@@ -20,7 +20,7 @@ return new class extends Migration
         'jobs',
         'job_batches',
         'failed_jobs',
-        'inmates',
+        'wbp',
     ];
 
     public function up(): void
