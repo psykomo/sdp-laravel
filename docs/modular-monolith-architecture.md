@@ -137,6 +137,22 @@ To keep extraction cost low:
 - Prefer stable public IDs (`UUID v7`) over exposing integer IDs.
 - Keep side effects explicit and queue-friendly.
 
+## Deployment Topology (Hub and Spoke)
+
+This architecture supports a hybrid hub-and-spoke deployment model:
+
+- **Hub (central system/database)**:
+  - Operated as the primary data center and consolidation point.
+- **Spokes (branch/UPT deployments)**:
+  - Some branches run with their own local database and synchronize to the hub using SymmetricDS.
+  - Some branches connect directly to the central hub database/system (no local replication node).
+
+Because both operating modes are supported, module and data design should preserve:
+
+- deterministic record identity (`UUID v7`);
+- replication metadata (`version` column on replicated tables);
+- idempotent write/update behavior where synchronization may replay operations.
+
 ## UUID Strategy
 
 - Application entities use `UUID v7` for identifiers.
