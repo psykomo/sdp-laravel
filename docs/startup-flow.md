@@ -23,6 +23,10 @@ This document describes how to start the application in local development.
    - `docker compose up -d`
 6. Run migrations:
    - `php artisan migrate`
+7. Run seeders:
+   - `php artisan db:seed`
+8. Run dev server:
+   - `composer run dev`
 
 ## Daily startup
 
